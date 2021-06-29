@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CityBookDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Full_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BornDate" Type="DateTime" Precision="0" />
+    <Property Name="Tz" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Child_User" FromRole="Child" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tz" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="BornDate" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Child" Relationship="Self.FK_Child_User" FromRole="User" ToRole="Child" />
+  </EntityType>
+  <Association Name="FK_Child_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CityBookDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Child" EntityType="Self.Child" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Child_User" Association="Self.FK_Child_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

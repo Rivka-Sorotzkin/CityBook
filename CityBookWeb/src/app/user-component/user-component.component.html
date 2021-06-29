@@ -1,0 +1,139 @@
+<form [formGroup]="addressForm" novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Shipping Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input [(ngModel)]="firstName" matInput placeholder="First name" formControlName="firstName"
+              ng-pattern="/^[a-zA-Z\s]*$/">
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('pattern')">
+              First name <strong>contain only letters</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+
+          <mat-form-field class="full-width">
+            <input [(ngModel)]="lastName" matInput placeholder="Last name" formControlName="lastName">
+            <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="addressForm.controls['lastName'].hasError('pattern')">
+              Last name <strong>contain only letters</strong>
+            </mat-error>
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+            <mat-label>Enter your Tz</mat-label>
+            <input matInput [(ngModel)]="Tz" maxlength="10" placeholder="323052910" formControlName="Tz">
+            <mat-error *ngIf="addressForm.controls['Tz'].hasError('required')">Tz is <strong>required</strong>
+            </mat-error>
+            <mat-hint align="end">{{Tz?.length || 0}}/10</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select [(ngModel)]="Hmo" placeholder="HMO" formControlName="HMO">
+              <mat-option *ngFor="let Hmo of hmo" [value]="Hmo.name">
+                {{ Hmo.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['HMO'].hasError('required')">
+              HMO is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group [(ngModel)]="Gender" formControlName="Gender">
+            <mat-radio-button value=male>Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <!-- <mat-error *ngIf="addressForm.controls['Gender'].hasError('required')">
+              Gender is <strong>required</strong>
+            </mat-error> -->
+          </mat-radio-group>
+        </div>
+      </div>
+      <div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input [(ngModel)]="BornDate" required matInput [matDatepicker]="picker" formControlName="DateBorn">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="addressForm.controls['DateBorn'].hasError('required')">
+              Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button mat-button type="button" (click)="AddChild()">
+            + Add Childs
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngFor="let child of children; let i=index">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input name="{{i}}" [(ngModel)]="child.FullName" matInput placeholder="Full name"
+                  formControlName="FullName">
+                <mat-error>
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                <mat-label>Enter your Tz</mat-label>
+                <input name=a{{i}} matInput [(ngModel)]="children[i].Tz" maxlength="10" placeholder="323052910"
+                  formControlName="tz">
+                <mat-hint align="end">{{Tz?.length || 0}}/10</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input name=a{{i}} [(ngModel)]="children[i].BornDate" matInput [matDatepicker]="picker"
+                  formControlName="DateBorn">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <button mat-button type="button" (click)="sendData()">
+            + Save Details
+          </button>
+
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>
+<button mat-button type="button" routerLink="/instractions">
+  To the instractions
+</button>

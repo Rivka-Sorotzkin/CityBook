@@ -1,0 +1,13 @@
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\BL.dll
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\BL.pdb
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\DAL.dll
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\DTO.dll
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\EntityFramework.dll
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\DAL.pdb
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\DAL.dll.config
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\DTO.pdb
+C:\Users\ריבקי\Desktop\ppproject\BL\bin\Debug\EntityFramework.xml
+C:\Users\ריבקי\Desktop\ppproject\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\ריבקי\Desktop\ppproject\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\ריבקי\Desktop\ppproject\BL\obj\Debug\BL.dll
+C:\Users\ריבקי\Desktop\ppproject\BL\obj\Debug\BL.pdb

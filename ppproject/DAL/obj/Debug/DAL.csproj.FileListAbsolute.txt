@@ -1,0 +1,11 @@
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\DAL.dll.config
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\DAL.dll
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\DAL.pdb
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\EntityFramework.dll
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\EntityFramework.xml
+C:\Users\ריבקי\Desktop\ppproject\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ריבקי\Desktop\ppproject\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\ריבקי\Desktop\ppproject\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ריבקי\Desktop\ppproject\DAL\obj\Debug\DAL.dll
+C:\Users\ריבקי\Desktop\ppproject\DAL\obj\Debug\DAL.pdb
